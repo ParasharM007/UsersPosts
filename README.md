@@ -2,7 +2,7 @@
 # Project Name
 ForFoodies
 ## Description
-ForFoodies is a web application used to get knowledge about food items in a single click. 
+ForFoodies is a web application which is completely responsive for desktop, tablet and mobile devices. It is used to get knowledge about food items in a single click. 
 It will show you the ingredients and their Nutrition-grade scores respectively.
 It will also show whether a item is fall under vegetarian or vegan or non-veg/non-vegan category.
 It contains a search option to search for a particular food item.

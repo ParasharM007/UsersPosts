@@ -34,7 +34,7 @@ function App() {
           element={
             <UserActivities
               data={data}
-              setData={setData}
+              
               loading={loading}
               setLoading={setLoading}
             />

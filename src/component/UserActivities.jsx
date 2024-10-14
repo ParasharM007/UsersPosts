@@ -4,7 +4,7 @@ import "./UserActivities.css";
 import Loading from "./loading.gif";
 import { useParams } from "react-router-dom";
 
-function UserActivities({ data, setData, loading, setLoading }) {
+function UserActivities({ data, loading, setLoading }) {
   const [posts, setPosts] = useState([]);
   const { id } = useParams();
   const userData = async () => {
@@ -34,7 +34,7 @@ function UserActivities({ data, setData, loading, setLoading }) {
         <hr />
         <section className="contain">
           <div className="left">
-            <img src={Profile} alt="" />
+            <img src={Profile} alt="image couldn't be appeared" />
             <div className="card-details">
               <div>
                 <b>{user.username}</b>
@@ -47,7 +47,7 @@ function UserActivities({ data, setData, loading, setLoading }) {
           <>
             <div className="right">
               {loading ? (
-                <img src={Loading} />
+                <img src={Loading} alt="image couldn't be appeared" />
               ) : (
                 posts.map((item) => (
                   <div className="posts" key={item?.id}>

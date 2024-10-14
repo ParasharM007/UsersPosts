@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import UserProfile from "./UserProfile";
 import "./Home.css";
 import Loading from "./loading.gif";
@@ -10,6 +10,7 @@ function Home({ data, setData, loading, setLoading }) {
       const temp = await fetch(`https://jsonplaceholder.typicode.com/users`);
       const Data = await temp.json();
       setData(Data);
+      localStorage.setItem("userData", JSON.stringify(data));
 
       setLoading(false);
     } catch (err) {
@@ -20,11 +21,6 @@ function Home({ data, setData, loading, setLoading }) {
   useEffect(() => {
     userData();
   }, []);
-  useEffect(() => {
-    if (data) {
-      localStorage.setItem("userData", JSON.stringify(data));
-    }
-  }, [data]);
   console.log("Type of data is " + typeof data);
   console.log(data);
   return (
@@ -32,7 +28,7 @@ function Home({ data, setData, loading, setLoading }) {
       <h1 className="heading">Users Dashboard</h1>
       <hr />
       <div className="container">
-        {loading ? <img src={Loading} /> : <UserProfile data={data} />}
+        {loading ? <img src={Loading} alt="image couldn't be appeared"/> : <UserProfile data={data} />}
       </div>
     </div>
   );

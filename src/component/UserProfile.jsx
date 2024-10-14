@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import profile from "./profile.png";
 import "./UserProfile.css";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ function UserProfile({ data }) {
           onClick={() => navigate(`/user/${item?.id}`)}
         >
           <div className="image">
-            <img src={profile} alt="" />
+            <img src={profile} alt="image couldn't be appeared" />
           </div>
           <div className="card-details">
             <div className="username">{item?.username}</div>

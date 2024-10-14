@@ -1,22 +1,21 @@
 
 # Project Name
-ForFoodies
+UsersPosts
 ## Description
-ForFoodies is a web application which is completely responsive for desktop, tablet and mobile devices. It is used to get knowledge about food items in a single click. 
-It will show you the ingredients and their Nutrition-grade scores respectively.
-It will also show whether a item is fall under vegetarian or vegan or non-veg/non-vegan category.
-It contains a search option to search for a particular food item.
+UsersPosts is a web application which is completely responsive for desktop, tablet and mobile devices. It is used to get info. about posts of users. 
+It have a dashboard that shows various User Profiles with their info. like Name, Username, Email,Phone Number,etc.
+It contains Posts of a respective user on /user/1,/user/2, etc.
+It shows all posts of a user by one click.
 
 ## GitHub Link
-[Here is the GitHub link to the project.](https://github.com/ParasharM007/OpenFoodFacts)
+[Here is the GitHub link to the project.](https://github.com/ParasharM007/UsersPosts)
 
 ## Development Time
-It took me around 4 days to create this project.
+It took me around 2 days to create this project.
 
 ## Approach
 In this project,
 I have used React for the smooth rendering of each component.
-I have used proxy feature of react to avoid re-writing the base URL, allowing me to focus on the specific endpoints for the API.
 You can find all dependencies in package.json file.
 
 ## Installation

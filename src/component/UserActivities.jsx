@@ -9,7 +9,9 @@ function UserActivities({ data, setData, loading, setLoading }) {
   const { id } = useParams();
   const userData = async () => {
     setLoading(true);
-    const temp = await fetch(`https://jsonplaceholder.typicode.com/posts?${id}`);
+    const temp = await fetch(
+      `https://jsonplaceholder.typicode.com/posts?${id}`
+    );
     const Data = await temp.json();
     setPosts(Data);
     setLoading(false);
@@ -18,7 +20,7 @@ function UserActivities({ data, setData, loading, setLoading }) {
     window.scrollTo(0, 0);
     userData();
   }, [id]);
-  const user=data.find((user) => user.id===parseInt(id))
+  const user = data.find((user) => user.id === parseInt(id));
   console.log("Type of data is " + typeof posts);
   console.log(posts);
   return (
@@ -41,7 +43,7 @@ function UserActivities({ data, setData, loading, setLoading }) {
           <>
             <div className="right">
               {loading ? (
-               <img src={Loading} />
+                <img src={Loading} />
               ) : (
                 posts.map((item) => (
                   <div className="posts" key={item?.id}>

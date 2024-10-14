@@ -1,32 +1,30 @@
 import React, { useState } from 'react'
-import Navbar from './component/Navbar'
-import {BrowserRouter as  Router, Routes,Route } from 'react-router-dom'
-import Products from './component/Products'
-import Search from './component/Search'
-import SingleProduct from './component/SingleProduct'
-import Footer from './component/Footer'
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
+import Home from './component/Home'
+import UserActivities from './component/UserActivities'
 
 function App() {
-  // const [searchbar,setShowSearch]=useState(false);
-  return (
+  // const [data, setData] = useState([]);
+  const [data, setData] = useState(() =>
+     {
+      try
+      {  
+        const savedData = localStorage.getItem('userData');
+    return savedData ? JSON.parse(savedData) : [];
+  } catch (error) {
+    console.error("Error parsing localStorage data: ", error);
+    return []; // Fallback to an empty array if JSON.parse fails
+  }
+});
+  const [loading,setLoading]=useState(false)
+  
+  return(
     <Router>
-      <Navbar />
       <Routes>
-        <Route exact path='/' element={<Products category={"/"} key={"home"} page={1} pageSize={15} />} />
-        <Route exact path="/cookies" element={<Products category={"cookies"} key={"cookies"} page={1} pageSize={15}/>} />
-        <Route exact path="/drinks" element={<Products category={"drinks"} key={"drinks"} page={1} pageSize={15}/>} />
-        <Route exact path="/chocolate" element={<Products category={"chocolate"} key={"chocolate"} page={1} pageSize={15}/>} />
-        <Route exact path="/dairy" element={<Products category={"dairy"} key={"dairy"} page={1} pageSize={15}/>} />
-        <Route exact path="/snacks" element={<Products category={"snacks"} key={"snacks"} page={1} pageSize={15}/>} />
-
-        <Route exact path="/product/:id" element={<SingleProduct />} />
-
-        
+        <Route element={<Home data={data} setData={setData} loading={loading} setLoading={setLoading}/>} exact path='/'/>
+        <Route element={<UserActivities data={data} setData={setData} loading={loading} setLoading={setLoading}/>} exact path='/user/:id'/>
       </Routes>
-      <Footer />
-
     </Router>
-
   )
 }
 

@@ -9,9 +9,7 @@ function UserActivities({ data, setData, loading, setLoading }) {
   const { id } = useParams();
   const userData = async () => {
     setLoading(true);
-    const temp = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?${id}`
-    );
+    const temp = await fetch(`https://jsonplaceholder.typicode.com/posts?${id}`);
     const Data = await temp.json();
     setPosts(Data);
     setLoading(false);

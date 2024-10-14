@@ -8,13 +8,17 @@ function UserActivities({ data, setData, loading, setLoading }) {
   const [posts, setPosts] = useState([]);
   const { id } = useParams();
   const userData = async () => {
-    setLoading(true);
-    const temp = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?${id}`
-    );
-    const Data = await temp.json();
-    setPosts(Data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const temp = await fetch(
+        `https://jsonplaceholder.typicode.com/posts?${id}`
+      );
+      const Data = await temp.json();
+      setPosts(Data);
+      setLoading(false);
+    } catch (err) {
+      console.log("Error occurred while fetching posts" + err.message);
+    }
   };
   useEffect(() => {
     window.scrollTo(0, 0);
